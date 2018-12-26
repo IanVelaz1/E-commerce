@@ -1,0 +1,136 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/polymer/lib/elements/dom-if.html">
+<link rel="import" href="../../bower_components/product-create/product-create.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/productsearch-element/productsearch-element.html">
+<link rel="import" href="../../bower_components/product-list/product-list.html">
+<link rel="import" href="../../bower_components/specific-product/specific-product.html">
+<link rel="import" href="../../bower_components/app-route/app-location.html">
+<link rel="import" href="../../bower_components/app-route/app-route.html">
+<link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../../bower_components/product-cart/product-cart.html">
+<link rel="import" href="../../bower_components/product-translate/product-translate.html">
+
+<dom-module id="ecommerce-app">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+
+      .navbar-container {
+        width: 100%;
+      }
+
+      #cart {
+        float: right;
+      }
+    </style>
+    <app-location route="{{route}}">
+    </app-location>
+    <app-route route="{{route}}" pattern="/:page" data="{{data}}"></app-route>
+    <product-translate on-language-recovered="languageObtained"></product-translate>
+    <div class="navbar-container">
+      <a href="/product-create" on-click="changePage" name="product-create">Agregar producto</a>
+      <a href="/product-list" on-click="changePage" name="product-list">Ver productos</a>
+      <a href="/product-cart" on-click="changePage" name="product-cart" id="cart">Carrito [[cartQty]]</a>
+    </div>
+    <iron-pages selected="[[selectedPage]]" attr-for-selected="name" role="main">
+      <product-create name="product-create" server-url="[[serverUrl]]" on-product-created="productCreated"></product-create>
+      <br>
+      <product-list name="product-list" server-url="[[serverUrl]]" on-selected-product="productSelected" language="[[language.buttons.cardButton]]"></product-list>
+      <specific-product name="specific-product" product="[[product]]" on-add-cart="addToCart"></specific-product>
+      <product-cart product-list="[[productList]]" name="product-cart"></product-cart>
+    </iron-pages>
+
+  </template>
+
+  <script>
+    /**
+     * @customElement
+     * @polymer
+     */
+    class ECommerceApp extends Polymer.Element {
+      static get is() {
+        return 'ecommerce-app';
+      }
+      static get properties() {
+        return {
+          serverUrl: {
+            type: String,
+            value: "http://localhost:3000/productos"
+          },
+          selectedPage: {
+            type: String,
+            reflectToAttribute: true,
+            
+          },
+          product: {
+            type: Object,
+            value() {
+              return {}
+            }
+          },
+          data: Object,
+          cartQty: {
+            type: Number,
+            value: 0
+          },
+          productList: {
+            type: Array,
+            value() {
+              return []
+            }
+          },
+          language:{
+            type:Object,
+            value(){
+
+            }
+          }
+        };
+      }
+
+      static get observers() {
+        return [
+          '_routeChanged(data)'
+        ];
+      }
+
+      languageObtained(event){
+         this.set("language",event.detail);
+         console.log(event.detail);
+         
+      }
+
+      changePage(event) {
+        this.set("selectedPage", event.target.getAttribute("name"));
+      }
+
+      
+
+      _routeChanged(data) {
+        this.selectedPage = data.page || "product-list"
+      }
+
+      productCreated(event) {
+        console.log(event.detail);
+      }
+
+      productSelected(event) {
+        this.set("product", event.detail);
+        this.set("selectedPage", "specific-product");
+      }
+
+      addToCart(event) {
+        this.push("productList", event.detail);
+        this.set("cartQty", this.productList.length);
+      }
+
+
+
+    }
+
+    window.customElements.define(ECommerceApp.is, ECommerceApp);
+  </script>
+</dom-module>

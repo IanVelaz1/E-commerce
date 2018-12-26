@@ -1,0 +1,49 @@
+{
+  "productos": [{
+      "name": "prod1",
+      "description": "desc1",
+      "url": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/5709/5709991_sa.jpg",
+      "price": "1252",
+      "id": 1
+    },
+    {
+      "name": "Producto2",
+      "description": "descripcion",
+      "url": "https://www.trendsinlifestyle.com/wp-content/uploads/2017/10/rsz_pexels-photo-461452.png",
+      "price": "4520",
+      "id": 2
+    }
+  ],
+  "es": {
+    "createProduct": {
+      "nameLabel": "nombre",
+      "descriptionLabel": "descripcion",
+      "urlImageLabel": "Url imagen",
+      "priceLabel": "Precio"
+    },
+    "searchLabel": {
+      "labelSearch": "Buscar Producto"
+    },
+    "buttons": {
+      "cartButton": "Carrito",
+      "cardButton": "Ver Mas",
+      "addCart": "Agregar al carrito"
+    }
+  },
+  "en": {
+    "createProduct": {
+      "nameLabel": "Name",
+      "descriptionLabel": "Description",
+      "urlImageLabel": "Url image",
+      "priceLabel": "price"
+    },
+    "searchLabel": {
+      "labelSearch": "Search for product"
+    },
+    "buttons": {
+      "cartButton": "Cart",
+      "cardButton": "See more",
+      "addCart": "Add to cart"
+    }
+  }
+}

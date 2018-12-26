@@ -1,0 +1,18 @@
+{
+  "name": "E-commerce",
+  "main": "index.html",
+  "dependencies": {
+    "polymer": "Polymer/polymer#^2.0.0",
+    "app-route": "PolymerElements/app-route#2.1.2",
+    "iron-pages": "PolymerElements/iron-pages#2.1.1",
+    "product-create": "jusolete/product-create",
+    "product-list": "jusolete/product-list",
+    "specific-product": "jusolete/specific-product",
+    "product-cart": "jusolete/product-card",
+    "product-translate": "jusolete/product-translate"
+  },
+  "devDependencies": {
+    "web-component-tester": "Polymer/web-component-tester#^6.0.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "E-commerce",
+  "short_name": "E-commerce",
+  "start_url": "/",
+  "display": "standalone"
+}
