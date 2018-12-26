@@ -9,7 +9,8 @@
     "product-list": "jusolete/product-list",
     "specific-product": "jusolete/specific-product",
     "product-cart": "jusolete/product-card",
-    "product-translate": "jusolete/product-translate"
+    "product-translate": "jusolete/product-translate",
+    "productsearch-element": "jusolete/search-product"
   },
   "devDependencies": {
     "web-component-tester": "Polymer/web-component-tester#^6.0.0",
