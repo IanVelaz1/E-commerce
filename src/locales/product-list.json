@@ -28,6 +28,10 @@
       "cartButton": "Carrito",
       "cardButton": "Ver Mas",
       "addCart": "Agregar al carrito"
+    },
+    "navLinks":{
+      "createProduct":"Crear producto",
+      "productList":"Ver productos"
     }
   },
   "en": {
@@ -44,6 +48,10 @@
       "cartButton": "Cart",
       "cardButton": "See more",
       "addCart": "Add to cart"
+    },
+    "navLinks":{
+      "createProduct":"Create product",
+      "productList":"Product list"
     }
   }
 }

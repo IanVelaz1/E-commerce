@@ -1,6 +1,13 @@
 # \<E-commerce\>
 
-
+##IMPORTANT
+```
+run bower i
+```
+##Important
+```
+run $ json-server locales/product-list.json --watch
+```
 
 ## Install the Polymer-CLI
 
